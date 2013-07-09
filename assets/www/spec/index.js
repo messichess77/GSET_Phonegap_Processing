@@ -16,52 +16,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-describe('app', function() {
-    describe('initialize', function() {
-        it('should bind deviceready', function() {
-            runs(function() {
-                spyOn(app, 'onDeviceReady');
-                app.initialize();
-                helper.trigger(window.document, 'deviceready');
-            });
 
-            waitsFor(function() {
-                return (app.onDeviceReady.calls.length > 0);
-            }, 'onDeviceReady should be called once', 500);
 
-            runs(function() {
-                expect(app.onDeviceReady).toHaveBeenCalled();
-            });
-        });
-    });
+begintime = new Date().getTime()/1000
 
-    describe('onDeviceReady', function() {
-        it('should report that it fired', function() {
-            spyOn(app, 'receivedEvent');
-            app.onDeviceReady();
-            expect(app.receivedEvent).toHaveBeenCalledWith('deviceready');
-        });
-    });
+for(i = 0; i<1000000; ++i)
+{
+    a = Math.random() * 11
+    b = Math.random() * 11
+    x = Math.floor(a)
+    y = Math.floor(b)
+    z = x * y;
+}
 
-    describe('receivedEvent', function() {
-        beforeEach(function() {
-            var el = document.getElementById('stage');
-            el.innerHTML = ['<div id="deviceready">',
-                            '    <p class="event listening">Listening</p>',
-                            '    <p class="event received">Received</p>',
-                            '</div>'].join('\n');
-        });
+endtime = new Date().getTime()/1000
 
-        it('should hide the listening element', function() {
-            app.receivedEvent('deviceready');
-            var displayStyle = helper.getComputedStyle('#deviceready .listening', 'display');
-            expect(displayStyle).toEqual('none');
-        });
+speedtime = endtime - begintime
 
-        it('should show the received element', function() {
-            app.receivedEvent('deviceready');
-            var displayStyle = helper.getComputedStyle('#deviceready .received', 'display');
-            expect(displayStyle).toEqual('block');
-        });
-    });
-});
+document.write(speedtime)
