@@ -17,7 +17,7 @@
        under the License.
  */
 
-package tv.cameraproject;
+/*package tv.cameraproject;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
@@ -32,5 +32,5 @@ public class PhoneGapAndroidCamera extends DroidGap
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html")
     }
-}
+}*/
 
