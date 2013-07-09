@@ -16,16 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-a = Math.random() * 11
-b = Math.random() * 11
-x = Math.floor(a)
-y = Math.floor(b)
-
 
 begintime = new Date().getTime()/1000
 
 for(i = 0; i<1000000; ++i)
 {
+     a = Math.random() * 11
+     b = Math.random() * 11
+     x = Math.floor(a)
+     y = Math.floor(b)
      z = x * y;
 }
 
