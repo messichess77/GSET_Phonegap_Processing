@@ -32,4 +32,4 @@ endtime = new Date().getTime()/1000
 
 speedtime = endtime - begintime
 
-document.write(speedtime)
+document.write("Hello world")
